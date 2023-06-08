@@ -1,5 +1,7 @@
 const inputText = document.getElementById("input-text");
 const searchButton = document.getElementById("search-btn");
+const infoContainer = document.createElement("div");
+infoContainer.classList.add("info-container");
 countryInfo();
 
 searchButton.addEventListener("click", () => {
@@ -36,9 +38,10 @@ function countryInfo() {
 }
 
 function countryDetails(name, flag, people, languages, capital, region) {
-  const infoContainer = document.getElementById("info-container");
-  const flagContainer = document.getElementById("flagcontainer");
   const container = document.getElementById("container");
+
+  const flagContainer = document.createElement("div");
+  flagContainer.classList.add("flagcontainer");
 
   const flagImg = document.createElement("img");
   flagImg.src = flag;
@@ -77,7 +80,8 @@ function countryDetails(name, flag, people, languages, capital, region) {
     capitalCity,
     population,
     countryRegion,
-    countryLanguage
+    countryLanguage,
+    readMore
   );
 
   infoContainer.appendChild(flagContainer);
