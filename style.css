@@ -1,67 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
+:root {
+  --dark-bg: hsl(207, 26%, 17%);
+  --flagcontainer-bg: hsl(209, 23%, 22%);
+  --white-text: hsl(0, 0%, 100%);
+}
+body.light {
+  --dark-bg: hsl(0, 0%, 98%);
+  --flagcontainer-bg: hsl(0, 0%, 100%);
+  --white-text: hsl(200, 15%, 8%);
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: #6c757d;
+  background-color: var(--dark-bg);
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--white-text);
 }
 #container {
-  background-color: #f8f9fa;
-  width: 80vw;
-  /*max-width: 500px;*/
-  margin: 0 auto;
+  width: 1440px;
   min-height: 100vh;
+  margin: 0 auto;
 }
 
 .inputcontainer {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 5rem;
   align-items: center;
-  margin: 0 auto;
-  padding-top: 5rem;
-
-  max-width: 700px;
 }
 
 .inputcontainer #input-text {
+  width: 50%;
+  height: 5vh;
+  background-color: var(--flagcontainer-bg);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: var(--white-text);
+  padding: 15px 30px;
+  font-size: 1rem;
+}
+.readmore-btn,
+#search-btn {
   border: none;
   outline: none;
   border-radius: 20px;
+  margin-top: 1rem;
   padding: 15px 30px;
-  flex: 1;
   font-size: 1rem;
-  border-bottom: 2px solid #6c757d;
-}
-.inputcontainer #search-btn {
-  outline: none;
-  border: none;
-
-  padding: 15px 30px;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #c1c3c5;
-  /*border-bottom: 2px solid #a4a9ad;*/
+  text-align: center;
+  color: var(--white-text);
   cursor: pointer;
+}
+#search-btn {
+  background-color: var(--flagcontainer-bg);
+}
+.readmore-btn {
+  background-color: var(--dark-bg);
 }
 .info-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 20px;
-  margin: 20px;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 1rem;
 }
 .flagcontainer {
-  width: 250px;
-  height: 320px;
-  box-shadow: 0 0 5px #6c757d;
+  background-color: var(--flagcontainer-bg);
+  width: 20%;
+
   border-radius: 10px;
   padding: 10px;
   margin: 15px;
 }
 .flag-img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 20vh;
+}
+.country-name {
+  padding: 1rem 0;
 }
 .title {
   padding: 3px;
@@ -70,18 +92,4 @@ body {
 .label {
   font-weight: bold;
   margin-bottom: 5px;
-}
-.readmore-btn {
-  border: none;
-  outline: none;
-  padding: 10px;
-  border-radius: 20px;
-  margin-top: 1rem;
-  padding: 15px 30px;
-  /*margin: 10px;
-  border-bottom: 2px solid #6c757d;
-  cursor: pointer;*/
-  background-color: #d0d4d6;
-
-  text-align: center;
 }

@@ -49,6 +49,7 @@ function countryDetails(name, flag, people, languages, capital, region) {
 
   const countryName = document.createElement("h3");
   countryName.textContent = name;
+  countryName.classList.add("country-name");
 
   const createLabelWithValue = (labelText, valueText) => {
     const container = document.createElement("div");
@@ -68,11 +69,15 @@ function countryDetails(name, flag, people, languages, capital, region) {
   const capitalCity = createLabelWithValue("Capitalcity:", capital);
   const countryRegion = createLabelWithValue("Region:", region);
   const population = createLabelWithValue("Population:", people);
-  const countryLanguage = createLabelWithValue("Language:", languages);
+  /* const countryLanguage = createLabelWithValue("Language:", languages);*/
 
   const readMore = document.createElement("button");
-  readMore.textContent = "ShowMore";
+  readMore.textContent = "Read more";
   readMore.classList.add("readmore-btn");
+  readMore.addEventListener("click", () => {
+    console.log("clicked");
+    openCountryInfo();
+  });
 
   flagContainer.append(
     flagImg,
@@ -80,7 +85,7 @@ function countryDetails(name, flag, people, languages, capital, region) {
     capitalCity,
     population,
     countryRegion,
-    countryLanguage,
+    /* countryLanguage,*/
     readMore
   );
 

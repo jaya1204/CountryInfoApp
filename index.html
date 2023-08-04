@@ -5,18 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CountryInfo App</title>
+
+    <!-- ****** css link ***** -->
     <link rel="stylesheet" href="style.css" />
-    <script src="./js/script.js" defer></script>
+
+    <!-- ****** font awsome cdn link ***** -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div id="container">
       <div class="inputcontainer">
         <input type="text" id="input-text" placeholder="enter country name" />
         <button id="search-btn">Search</button>
+        <div class="dark-light" onclick="changeTheme()">
+          <i class="fa-regular"></i>
+        </div>
       </div>
       <!--<div id="info-container">
         <div id="flagcontainer"></div>
       </div>-->
     </div>
+
+    <!-- ***** JS link *****-->
+    <script src="./js/script.js"></script>
+    <!-- ***** JS link detail country info *****-->
+    <script src="./js/countryinfo.js"></script>
+    <!-- ***** JS link Theme change *****-->
+    <script src="./js/themechange.js"></script>
   </body>
 </html>
