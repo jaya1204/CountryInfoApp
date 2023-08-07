@@ -4,10 +4,10 @@ const infoContainer = document.createElement("div");
 infoContainer.classList.add("info-container");
 countryInfo();
 
-searchButton.addEventListener("click", () => {
+/*searchButton.addEventListener("click", () => {
   console.log("button clicked");
-  countryInfo();
-});
+  countryInfo(value);
+});*/
 
 function countryInfo() {
   fetch("https://restcountries.com/v2/all")

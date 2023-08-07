@@ -5,7 +5,7 @@
   --white-text: hsl(0, 0%, 100%);
 }
 body.light {
-  --dark-bg: hsl(0, 0%, 98%);
+  --dark-bg: hsl(0, 0%, 95%);
   --flagcontainer-bg: hsl(0, 0%, 100%);
   --white-text: hsl(200, 15%, 8%);
 }
@@ -84,6 +84,8 @@ body {
 }
 .country-name {
   padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 .title {
   padding: 3px;
@@ -92,4 +94,15 @@ body {
 .label {
   font-weight: bold;
   margin-bottom: 5px;
+}
+@media (max-width: 375px) {
+  #container {
+    width: 375px;
+  }
+  .flagcontainer {
+    width: 100%;
+  }
+  #search-btn {
+    display: none;
+  }
 }
