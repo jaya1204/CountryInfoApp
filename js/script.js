@@ -75,6 +75,8 @@ function countryDetails(name, flag, people, languages, capital, region) {
   readMore.textContent = "Read more";
   readMore.classList.add("readmore-btn");
   readMore.addEventListener("click", () => {
+    location.href =
+      "./Html/countryinfo.html?countryname=${encodeURIComponent(name)}";
     console.log("clicked");
     openCountryInfo();
   });
