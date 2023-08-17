@@ -6,7 +6,10 @@ countryInfo();
 
 searchButton.addEventListener("click", () => {
   console.log("button clicked");
-  countryInfo(value);
+
+  const conname = inputText.value;
+  console.log(conname);
+  countryInfo(conname);
 });
 
 function countryInfo() {
