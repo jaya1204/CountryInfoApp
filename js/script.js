@@ -2,18 +2,11 @@ const inputText = document.getElementById("input-text");
 const searchButton = document.getElementById("search-btn");
 const infoContainer = document.createElement("div");
 infoContainer.classList.add("info-container");
+
 countryInfo();
 
-searchButton.addEventListener("click", () => {
-  console.log("button clicked");
-
-  const conname = inputText.value;
-  console.log(conname);
-  countryInfo(conname);
-});
-
 function countryInfo() {
-  fetch("https://restcountries.com/v2/all")
+  fetch(`https://restcountries.com/v2/all`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((country) => {
@@ -78,10 +71,9 @@ function countryDetails(name, flag, people, languages, capital, region) {
   readMore.textContent = "Read more";
   readMore.classList.add("readmore-btn");
   readMore.addEventListener("click", () => {
-    location.href =
-      "./Html/countryinfo.html?countryname=${encodeURIComponent(name)}";
+    location.href = `/countryinfo.html?name= ${name}`;
     console.log("clicked");
-    openCountryInfo();
+    country(name);
   });
 
   flagContainer.append(
@@ -90,6 +82,7 @@ function countryDetails(name, flag, people, languages, capital, region) {
     capitalCity,
     population,
     countryRegion,
+
     /* countryLanguage,*/
     readMore
   );

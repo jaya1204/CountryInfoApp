@@ -95,12 +95,24 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-@media (max-width: 450px) {
+@media (max-width: 990px) {
   #container {
-    width: 375px;
+    width: 900px;
   }
   .flagcontainer {
-    width: 100%;
+    width: 25%;
+  }
+}
+
+@media (max-width: 450px) {
+  #container {
+    width: 400px;
+  }
+  .info-container {
+    width: 350px;
+  }
+  .flagcontainer {
+    width: 80%;
   }
   #search-btn {
     display: none;
