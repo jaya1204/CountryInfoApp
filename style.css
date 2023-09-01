@@ -44,8 +44,7 @@ body {
   padding: 15px 30px;
   font-size: 1rem;
 }
-.readmore-btn,
-#search-btn {
+.readmore-btn {
   border: none;
   outline: none;
   border-radius: 20px;
@@ -58,6 +57,14 @@ body {
 }
 #search-btn {
   background-color: var(--flagcontainer-bg);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 20px 40px;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--white-text);
+  cursor: pointer;
 }
 .readmore-btn {
   background-color: var(--dark-bg);
@@ -94,6 +101,36 @@ body {
 .label {
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+/*  ------ styles for countryinfo.html page ------- */
+#country-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 4rem auto;
+  align-items: center;
+  justify-content: center;
+}
+#country-container .img {
+  width: 40%;
+}
+#country-container .img img {
+  width: 100%;
+}
+#country-container .info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+#country-container .info .country-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 1rem;
+  column-gap: 2rem;
+  max-height: 180px;
 }
 @media (max-width: 990px) {
   #container {
