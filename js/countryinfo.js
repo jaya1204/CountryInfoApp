@@ -4,20 +4,28 @@ const countryname = new URLSearchParams(window.location.search).get(`name`);
 
 fetch(`https://restcountries.com/v3.1/name/${countryname}`)
   .then((res) => res.json())
-  .then(([country]) => {
+  .then((data) => {
+    const country = Array.isArray(data) ? data[0] : data;
     console.log(country);
 
-    const flagsrc = country.flags.svg;
+    const flagsrc = country.flags?.svg;
     const capital = country.capital;
     const name = countryname;
-    const nativeName = Object.values(country.name.nativeName)[0].common;
+    const nativeName = Object.values(country.name?.nativeName || "unknown")[0]
+      .common;
     const population = country.population;
     const region = country.region;
     const subregion = country.subregion;
-    const currencies = Object.values(country.currencies)
+    /*const currencies = Object.values(country.currencies)
       .map((currency) => currency.name)
-      .join(", ");
-    const languages = Object.values(country.languages).join(", ");
+      .join(", ");*/
+    const currencies = Array.isArray(country.currencies)
+      ? country.currencies.map((currency) => currency.name).join(", ")
+      : "Unknown";
+    //const languages = Object.values(country.languages).join(", ");
+    const languages = Array.isArray(country.languages)
+      ? country.languages.map((language) => language.name).join(", ")
+      : "Unknown";
 
     Country(
       flagsrc,
