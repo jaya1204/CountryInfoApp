@@ -132,6 +132,22 @@ body {
   column-gap: 2rem;
   max-height: 180px;
 }
+
+#borders {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-content: center;
+
+  gap: 1rem;
+}
+.countryborder {
+  outline: none;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+}
 @media (max-width: 990px) {
   #container {
     width: 900px;

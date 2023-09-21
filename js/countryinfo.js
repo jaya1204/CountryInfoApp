@@ -1,15 +1,30 @@
 console.log(new URLSearchParams(window.location.search).get(`name`));
 
 const countryname = new URLSearchParams(window.location.search).get(`name`);
+const bordercountries = document.getElementById("borders");
 
 fetch(`https://restcountries.com/v3.1/name/${countryname}`)
   .then((res) => res.json())
   .then((data) => {
     const country = Array.isArray(data) ? data[0] : data;
     console.log(country);
-    const tld = country.tld;
-    console.log(tld);
 
+    country.borders.forEach((border) => {
+      fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+        .then((res) => res.json())
+        .then(([data]) => {
+          const countryTag = document.createElement("a");
+          countryTag.innerText = data.name.common;
+          countryTag.classList.add("countryborder");
+          countryTag.href = `/countryinfo.html?name= ${name}`;
+          bordercountries.append(countryTag);
+          console.log(countryTag);
+        });
+    });
+
+    console.log(borders);
+
+    const tld = country.tld;
     const flagsrc = country.flags?.svg;
     const capital = country.capital;
     const name = countryname;
@@ -124,7 +139,7 @@ function Country(
 
   countryInfo.appendChild(nameElement);
   countryInfo.appendChild(countryDetails);
-
+  countryInfo.appendChild(bordercountries);
   countryContainer.append(imgContainer, countryInfo);
 }
 
