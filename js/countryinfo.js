@@ -7,6 +7,8 @@ fetch(`https://restcountries.com/v3.1/name/${countryname}`)
   .then((data) => {
     const country = Array.isArray(data) ? data[0] : data;
     console.log(country);
+    const tld = country.tld;
+    console.log(tld);
 
     const flagsrc = country.flags?.svg;
     const capital = country.capital;
@@ -18,14 +20,28 @@ fetch(`https://restcountries.com/v3.1/name/${countryname}`)
     const subregion = country.subregion;
     /*const currencies = Object.values(country.currencies)
       .map((currency) => currency.name)
-      .join(", ");*/
+      .join(", ");
     const currencies = Array.isArray(country.currencies)
       ? country.currencies.map((currency) => currency.name).join(", ")
-      : "Unknown";
-    //const languages = Object.values(country.languages).join(", ");
-    const languages = Array.isArray(country.languages)
+      : typeof country.currencies === "object" && country.currencies.name
+      ? country.currencies.name
+      : "Unknown";*/
+    const currencies =
+      typeof country.currencies === "object"
+        ? Object.values(country.currencies)
+            .map((currency) => currency.name)
+            .join(", ")
+        : "Unknown";
+    //const currencies = Object.values(country.currencies).join(", ");
+    const languages = Object.values(country.languages).join(", ");
+    /* const languages = Array.isArray(country.languages)
       ? country.languages.map((language) => language.name).join(", ")
       : "Unknown";
+    const languages = Array.isArray(country.languages)
+      ? country.languages.map((lang) => lang.name).join(", ")
+      : typeof country.languages === "object" && country.languages.name
+      ? country.languages.name
+      : "Unknown";*/
 
     Country(
       flagsrc,
@@ -36,7 +52,8 @@ fetch(`https://restcountries.com/v3.1/name/${countryname}`)
       subregion,
       currencies,
       languages,
-      population
+      population,
+      tld
     );
   });
 
@@ -49,7 +66,8 @@ function Country(
   subregion,
   currencies,
   languages,
-  population
+  population,
+  tld
 ) {
   const countryContainer = document.getElementById("country-container");
 
@@ -92,6 +110,9 @@ function Country(
   const populationLabel = document.createElement("p");
   populationLabel.textContent = `Population: ${population}`;
 
+  const topLevelDomain = document.createElement("p");
+  topLevelDomain.textContent = `TopLevelDomains: ${tld}`;
+
   countryDetails.appendChild(nativeName);
   countryDetails.appendChild(capitalCity);
   countryDetails.appendChild(regionLabel);
@@ -99,6 +120,7 @@ function Country(
   countryDetails.appendChild(currenciesLabel);
   countryDetails.appendChild(languagesLabel);
   countryDetails.appendChild(populationLabel);
+  countryDetails.appendChild(topLevelDomain);
 
   countryInfo.appendChild(nameElement);
   countryInfo.appendChild(countryDetails);
